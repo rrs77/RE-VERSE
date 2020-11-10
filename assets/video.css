@@ -1,0 +1,289 @@
+@font-face {
+    font-family: KGCorneroftheSky;
+    src: url(Fonts/KGCorneroftheSky.ttf);
+  }
+@font-face {
+    font-family: LeagueSpartan;
+    src: url(Fonts/LeagueSpartan-Bold.otf);
+  }
+@font-face {
+    font-family: OpenSans;
+    src: url(Fonts/OpenSans-Regular.ttf);
+  }
+  
+*:focus{
+    outline:none !important;
+  }
+body{
+        padding-top:50px;
+        padding:0px;
+        margin:0px;
+    }
+    .big{
+        font-size: 12vh;
+    }
+    .active{
+        color:red !important;
+        transform: scale(1.0) translateY(-5px) !important;
+        /*transform: translateY(-10px) !important;*/
+        
+        /*font-size : 60px;*/
+    }
+    .inactive{
+        color: grey;
+        /*transform: scale(1);*/
+    }
+    #bar{
+        display: block;
+        width:70vw;
+        height: 30px;
+        margin:auto;
+        background: linear-gradient(to bottom, rgb(190, 190, 190), rgb(228, 228, 228));
+        border-radius: 100px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0px 0px 5px rgba(0,0,0,.3);
+    }
+    #progress{
+        display: block;
+        width:0px;
+        height: 30px;
+        /*background: #FFC601;*/
+        background: linear-gradient(to bottom, #FFC601, rgb(255, 228, 132));
+        position: relative;
+    }
+    #progress::after{
+        content: "";
+        height: 28px;
+        width: 28px;
+        background: whitesmoke;
+        position: absolute;
+        right: -14px;
+        border-radius: 100px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+        margin-top: 1px;
+    }
+
+    button span{
+        display: block;
+        height: 24px;
+        font-size: 12px;
+    }
+    button img{
+        height: 40px;
+    }
+    .btn1{
+        background: transparent;
+    }
+    .btn2{
+        background: transparent;
+    }
+    #lyric span{
+        display:inline-block;
+        transition: 0.1s ease;
+        height: 10vh;
+    }
+    #lyric, #lyricoff{
+        font-size: 4.5vh;
+    }
+    #lyricoff{
+        display: none;
+        color: grey;
+    }
+    .wrapper{
+        padding-top: 20px;
+        min-height: calc(100vh - 140px);
+        display: block;
+        widows: 60%;
+        /* text-align: center; */
+        background-size: cover;
+    }
+    #time, #duration, #timemil{
+        /* font-size: 30px; */
+        width: 10vw;
+        text-align: center;
+        color: white;
+        display: inline-block;
+        width:150px;
+        
+    }
+    
+    #footer img{
+        height: 15vh;
+        position: fixed;
+        bottom: 150px;
+        right: 50px;
+    }
+    h1{
+        font-size: 50px;
+        text-align: center;
+        color: rgb(11, 78, 179);
+        margin:10px;
+    }
+    h3{
+        font-size: 4vh;
+        /* text-align: center; */
+        color: rgb(11, 78, 179);
+        margin:3vh 0px;
+    }
+    #section{
+        text-decoration: underline;
+    }
+    #page{
+        display: none;
+    }
+    #textView{
+        width: 80%;
+        max-width: 1200px;
+        margin:auto;
+    }
+    #loading{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        z-index: 1000;
+        background: white;
+    }
+
+    #bottombar{
+        display: flex;
+        height: 80px;
+        width: 100vw;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        background: #222222;
+        justify-content: center;
+        align-items: center;
+    }
+    #rightbar{
+        flex-grow: 1;
+    }
+    #leftbar{
+        flex-grow: 1;
+    }
+    #middlebar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 600px;
+        width: 80%;
+    }
+      
+      .slider {
+        -webkit-appearance: none;
+        width: 80%;
+        height: 5px;
+        background: rgb(167, 167, 167);
+        border-radius: 100px;
+        outline: none;
+        opacity: 0.8;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+      
+      .slider:hover {
+        opacity: 1;
+      }
+      
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        background: rgb(255, 255, 255);
+        cursor: pointer;
+        border-radius: 100px;
+      }
+      
+      .slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: rgb(119, 255, 153);
+        cursor: pointer;
+        border-radius: 100px;
+      }
+    #title{
+        height: 15vh;
+        font-size: 6vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button:focus{
+        outline: none;
+    }
+    #close{
+        display: block;
+        justify-content: center;
+        height: 30px;
+        color: black;
+        border-radius: 50px;
+        padding: 5px 15px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-decoration: none;
+        border: 1px solid black;
+        line-height: 30px;
+    }
+    #modal .content{
+        width: calc(100% - 300px);
+        height: calc(100% - 300px);
+        background: white;
+        z-index: 1000;
+        display: block;
+        max-width: 1920px;
+        max-height: 1080px;
+        position: relative;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,.6) ;
+        padding:60px;
+    }
+    #video{
+        height: calc(100vh - 80px);
+        height: calc(100vh - 0px);
+    }
+    #video iframe{
+        width: 100%;
+        height: 100%;
+    }
+    #video video{
+        width: 100%;
+        height: 100%;
+    }
+    #modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,.6);
+        top: 0px;
+        left: 0px;
+    }
+    .btn3{
+        position: fixed;
+        top: 10px;
+        background: rgba(0,0,0,.5);
+        border: 0px solid white;
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: white;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+        opacity: .1;
+        transition: .2s ease;
+    }
+    .btn3:hover{
+        opacity: 1;
+    }

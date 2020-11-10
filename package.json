@@ -1,0 +1,43 @@
+{
+  "name": "re-view",
+  "version": "1.0.0",
+  "productName": "BandLab - Let's Get Started",
+  "description": "Lesson Viewer",
+  "main": "main.js",
+  "build": {
+    "appId": "uk.co.rhythmstix.getstarted",
+    "productName": "Re-View",
+    "mac": {
+      "category": "music",
+      "icon": "assets/graphic.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/graphic.png",
+      "certificateFile": "CERTIFICATE.pfx",
+      "certificatePassword": "rhythmstix"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Rhythmstix",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.3",
+    "electron-builder": "^22.6.0",
+    "electron-packager": "^14.2.1"
+  },
+  "dependencies": {
+    "decompress-zip": "^0.2.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "gr-pdf-window": "^1.1.13",
+    "jquery": "^3.5.1"
+  }
+}

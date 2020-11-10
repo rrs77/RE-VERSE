@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;"
+    /> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';" /> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="assets/slide.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <title id="ttl"></title>
+    <style>
+      .youtube-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 150px;
+        background: #333333;
+        color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px black;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: arial;
+      }
+      .content {
+        border-radius: 10px;
+      }
+      #bottombar.onplay {
+        opacity: 0;
+        transition: 0.5s ease;
+      }
+      #bottombar.onplay:hover {
+        opacity: 1;
+      }
+      .youtube-nav {
+        display: flex;
+        width: 100%;
+        top: 50%;
+        left: 0px;
+        position: fixed;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        padding: 0px 30px;
+      }
+      .youtube-nav button {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loading">LOADING...</div>
+    <div id="page">
+      <div id="content"></div>
+
+      <div id="bottombar">
+        <div id="rightbar"></div>
+        <div id="middlebar">
+          <div style="display: flex; justify-content: center">
+            <button class="btn1" onclick="back()" type="button">
+              <img src="assets/icons/ic_home_48px.svg" /><br /><span>Home</span>
+            </button>
+            <button class="btn1" id="gp" onclick="prev()" type="button">
+              <img src="assets/icons/ic_skip_previous_48px.svg" /><br /><span
+                >Prev. Slide</span
+              >
+            </button>
+            <button class="btn1" id="gn" onclick="next()" type="button">
+              <img src="assets/icons/ic_skip_next_48px.svg" /><br /><span
+                >Next Slide</span
+              >
+            </button>
+            <button class="btn1" id="pl" onclick="resumeplay()" type="button">
+              <img src="assets/icons/ic_play_arrow_48px.svg" /><br /><span
+                >Play</span
+              >
+            </button>
+            <button class="btn2" id="ps" onclick="pauseplay()" type="button">
+              <img src="assets/icons/ic_pause_48px.svg" /><br /><span
+                >Pause</span
+              >
+            </button>
+            <button class="btn1" id="pd" onclick="pdfBtn()" type="button">
+              <img src="assets/icons/ic_picture_as_pdf_48px.svg" /><br /><span
+                >PDF</span
+              >
+            </button>
+            <button class="btn1" id="vd" onclick="videoBtn()" type="button">
+              <img src="assets/icons/ic_ondemand_video_48px.svg" /><br /><span
+                >Video</span
+              >
+            </button>
+            <div
+              style="
+                width: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <img
+                src="assets/icons/ic_volume_up_48px.svg"
+                style="width: 28px"
+              /><input
+                type="range"
+                min="1"
+                max="100"
+                class="slider"
+                id="volume"
+              />
+            </div>
+          </div>
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 40px;
+            "
+            id="seeker"
+          >
+            <span id="time">
+              <!-- time for 00:00 ; timemil for 00:00.0-->
+              00:00
+            </span>
+            <input
+              type="range"
+              min="1"
+              max="1000"
+              class="slider"
+              id="myRange"
+            />
+            <span id="duration"> </span>
+          </div>
+        </div>
+        <div id="leftbar"></div>
+      </div>
+    </div>
+    <div class="youtube-nav">
+      <button class="" id="" onclick="prev()" type="button">
+        <img src="assets/icons/ic_skip_previous_48px.svg" />
+      </button>
+      <button class="" id="" onclick="next()" type="button">
+        <img src="assets/icons/ic_skip_next_48px.svg" />
+      </button>
+    </div>
+    <!-- <div class="youtube-info">Use the Youtube navigation</div> -->
+    <div id="modal">
+      <div class="content">
+        <a href="javascript:close()" id="close"
+          ><i class="fa fa-times-circle"></i
+        ></a>
+        <div id="video">
+          <iframe
+            id="ol"
+            src=""
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope"
+            allowfullscreen
+          ></iframe>
+          <video
+            id="lc"
+            autoplay
+            controls
+            disablePictureInPicture
+            controlsList="nodownload"
+          >
+            <source src="" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- <audio src="" id="voiceover" controls></audio> -->
+
+    <audio id="voiceover">
+      <source src="" type="audio/mpeg" />
+    </audio>
+    <script>
+      window.$ = window.jQuery = require("jquery");
+    </script>
+    <script src="assets/slide.js"></script>
+  </body>
+</html>

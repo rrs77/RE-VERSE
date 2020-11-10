@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        background: white;
+      }
+      html,
+      body,
+      iframe {
+        padding: 0px;
+        margin: 0px;
+        width: 100vw;
+        height: 100vh;
+      }
+      .bottombar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+        background: black;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+      }
+      button {
+        /* height: 50px; */
+        color: white;
+        padding: 5px;
+        border: 0px;
+        width: 100px;
+        margin: 15px 0px 0px 0px;
+        background: transparent;
+      }
+      button span {
+        display: block;
+        height: 24px;
+        font-size: 12px;
+      }
+      button img {
+        height: 40px;
+      }
+      
+*:focus{
+  outline:none !important;
+}
+    </style>
+  </head>
+  <body>
+    <iframe id="vd" src="" frameborder="0"></iframe>
+    <div class="bottombar">
+      <button class="btn1" onclick="back()" type="button">
+        <img src="assets/icons/ic_home_48px.svg" /><br /><span>Home</span>
+      </button>
+      <button class="btn1" onclick="goback()" type="button">
+        <img src="assets/icons/ic_arrow_back_48px.svg" /><br /><span>Back</span>
+      </button>
+    </div>
+    <script>
+      window.$ = window.jQuery = require("jquery");
+    </script>
+    <script>
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(
+          /[?&]+([^=&]+)=([^&]*)/gi,
+          function (m, key, value) {
+            vars[key] = value;
+          }
+        );
+        return vars;
+      }
+
+      $(document).ready(function () {
+        let iframe = decodeURIComponent(getUrlVars()["iframe"]);
+        console.log(iframe);
+        $("#vd").attr("src", iframe);
+      });
+      function back() {
+        window.location.href = "index.html?page=" + getUrlVars()["page"];
+      }
+      function goback() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>

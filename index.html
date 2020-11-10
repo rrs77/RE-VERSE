@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+    <link rel="stylesheet" href="assets/index.css" />
+    <title>Import Contents</title>
+  </head>
+  <body>
+    <div id="loading">
+      LOADING...
+    </div>
+
+    <br />
+    <img src="assets/logo.png" alt="" style="height: 220px;" />
+    <!-- <h1>Welcome to BandLab For Education - Let's Get Started</h1>
+    <h4>by Rhythmstix</h4> -->
+    <br />
+    <div id="success">
+      <h3>This App has been activated for <span></span> days!</h3>
+    </div>
+    <div id="fail">
+      <h3>You have entered an invalid code!</h3>
+    </div>
+    <div id="expired">
+      <h3>That licence has expired!</h3>
+    </div>
+    <div id="progress">
+      <h3>Validating...</h3>
+      <p>Please ensure you have an internet connection</p>
+    </div>
+    <br />
+    <a href="#" class="button" id="continue" onclick="cnt()">Continue</a>
+    <br />
+    <input
+      type="text"
+      placeholder="Please type activation code"
+      class="input"
+      autofocus
+    />
+    <br />
+    <a href="#" class="button" id="validate" onclick="activate()">Activate</a>
+    <br />
+    <a href="#" class="button1" id="trial" onclick="trial1()"
+      >Continue Subscription<br /><span><i></i> days left</span></a
+    >
+    <!-- <input type="button" id="select-file" value="Select .slv file" />
+    <br />
+    <a href="list.html" id="continue">Continue</a>
+    <br />
+    <a href="list.html" id="cancel">Cancel</a> -->
+
+    <script>
+      window.$ = window.jQuery = require("jquery");
+    </script>
+    <script src="assets/index.js"></script>
+  </body>
+</html>
